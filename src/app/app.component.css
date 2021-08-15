@@ -1,0 +1,36 @@
+html{
+  height: 100%;
+}
+a{
+  text-decoration: none;
+}
+
+.nav{
+  height: 6rem;
+  background: #ee7fee;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+.navbar-items{
+  color: black;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 20rem;
+  font-family: "Arial Black";
+  justify-content: center;
+  align-items: center;
+
+}
+.navbar-items:hover{
+  color: white;
+  background: #8d108d;
+}
+.login-form{
+  flex:1;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
