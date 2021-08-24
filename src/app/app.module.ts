@@ -6,11 +6,17 @@ import {AppComponent} from './app.component';
 import {UserComponent} from './user/user.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { GroupComponent } from './group/group.component';
+import { ChatComponent } from './chat/chat.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    GroupComponent,
+    ChatComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

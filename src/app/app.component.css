@@ -34,3 +34,6 @@ a{
   justify-content: center;
   margin: auto;
 }
+.active{
+  background: #8d108d;
+}
