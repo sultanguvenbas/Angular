@@ -28,7 +28,7 @@ a{
   color: white;
   background: #8d108d;
 }
-.login-form{
+.container{
   flex:1;
   display: flex;
   justify-content: center;
