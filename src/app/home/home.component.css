@@ -1,0 +1,56 @@
+.home-box{
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 390px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin-top: 3rem;
+  background: #d3d1d1;
+}
+
+.nickname{
+  border: 1px solid rgb(9, 9, 9);
+  border-radius: 20px ;
+  background: black;
+  color: #d0cbcb;
+  padding: 0.3rem;
+  margin: 0;
+
+}
+
+.content{
+  flex: 1;
+  justify-content: flex-start;
+  border: 1px solid rgb(108, 105, 105);
+  border-radius: 20px ;
+  color: black;
+  padding: 5px;
+  margin-bottom: 5px;
+
+
+}
+.images{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+svg{
+  height: 50px;
+  width: 50px;
+  cursor: pointer ;
+
+}
+
+span{
+  font-size: 25px;
+}
