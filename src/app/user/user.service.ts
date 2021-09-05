@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {User} from "./user";
+import {UserInterface} from "../interfaces/user.interface";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -10,7 +10,7 @@ export class AppService{
   baseUrl: string = "http://localhost:8080/"
   constructor(private http:HttpClient) {}
 
-  addUser(user : User):Observable<any>{
+  addUser(user : UserInterface):Observable<any>{
     const headers = {'content-type' : 'application/json'};
     const body = JSON.stringify(user);
     console.log(body);
@@ -23,7 +23,7 @@ export class AppService{
 //   "username": "Ali",
 //   "password": "123456"
 // }
-  login(user: User) {
+  login(user: UserInterface) {
     return this.http.post(this.baseUrl + 'user/login', user)
   }
 }

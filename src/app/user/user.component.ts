@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "./user";
+import {UserInterface} from "../interfaces/user.interface";
 import {AppService} from "./user.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {AppService} from "./user.service";
 })
 export class UserComponent implements OnInit {
 
-  user = new User()
+  user = {} as UserInterface
 
   constructor(private apiService: AppService) { }
 

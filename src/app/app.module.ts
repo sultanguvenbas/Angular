@@ -10,6 +10,8 @@ import { GroupComponent } from './group/group.component';
 import { ChatComponent } from './chat/chat.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
+import { SinglePostComponent } from './single-post/single-post.component';
+import {PostElementComponent} from "./elements/post-element.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HomeComponent } from './home/home.component';
     GroupComponent,
     ChatComponent,
     ContactUsComponent,
-    HomeComponent
+    HomeComponent,
+    SinglePostComponent,
+    PostElementComponent
 
   ],
   imports: [
