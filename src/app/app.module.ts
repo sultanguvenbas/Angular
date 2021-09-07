@@ -11,7 +11,7 @@ import { ChatComponent } from './chat/chat.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { SinglePostComponent } from './single-post/single-post.component';
-import {PostElementComponent} from "./elements/post-element.component";
+
 
 @NgModule({
   declarations: [
@@ -22,7 +22,6 @@ import {PostElementComponent} from "./elements/post-element.component";
     ContactUsComponent,
     HomeComponent,
     SinglePostComponent,
-    PostElementComponent
 
   ],
   imports: [

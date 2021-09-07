@@ -3,4 +3,7 @@ export interface PostInterface{
   Color: string
   Nickname: string
   Content: string
+  DateCreated:string
+  Likes:number
+  Dislikes:number
 }

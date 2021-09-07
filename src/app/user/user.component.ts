@@ -23,7 +23,8 @@ export class UserComponent implements OnInit {
   }
 
   login() {
-    this.apiService.login(this.user).subscribe(data=>{
+    this.apiService.login(this.user).subscribe((data:any)=>{
+      localStorage.setItem ('token', data);
       console.log(data)
     })
   }

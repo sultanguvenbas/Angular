@@ -19,7 +19,9 @@
 
 }
 
-.content{
+.content-box{
+  display: flex;
+  flex-direction: column;
   flex: 1;
   justify-content: flex-start;
   border: 1px solid rgb(108, 105, 105);
@@ -27,7 +29,14 @@
   color: black;
   padding: 5px;
   margin-bottom: 5px;
+}
+.content{
+  flex: 1;
+}
 
+.date{
+  display: flex;
+  justify-content: flex-end;
 
 }
 .images{
@@ -55,3 +64,31 @@ span{
   font-size: 25px;
 }
 
+.create-post{
+  position: absolute;
+  top: 70%;
+  left: 75%;
+  height: 10rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-input{
+  outline: none;
+  height: 2rem;
+  width: fit-content;
+  border-radius: 10px ;
+  font-size: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #e337e3;
+}
+.cratePost-button{
+  height: 2rem;
+  border-radius: 10px ;
+  font-size: 15px;
+  background: #ee7fee;
+  border: 1px solid #ee7fee;
+  margin-left: 5px;
+  cursor: pointer;
+}

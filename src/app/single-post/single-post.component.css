@@ -58,3 +58,9 @@ span{
 .hidden{
   display: none;
 }
+
+.date{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}

@@ -3,7 +3,10 @@
     <label>Username: </label>
     <input [(ngModel)]="user.username">
     <label>Password: </label>
-    <input type="password" [(ngModel)]="user.password">
+    <input type="password" required minlength="6" maxlength="14" [(ngModel)]="user.password">
+    <small *ngIf="user.password.length <= 6  || user.password.length > 14" >
+      Password is required (minimum 6 characters).
+    </small>
   </div>
   <div>
     <button (click)="addUser()">Sign up</button>
