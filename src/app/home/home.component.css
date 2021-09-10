@@ -64,16 +64,23 @@ span{
   font-size: 25px;
 }
 
+
 .create-post{
-  position: absolute;
-  top: 70%;
-  left: 75%;
+  position: fixed;
+  top: 50%;
+  left: 80%;
   height: 10rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.post{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
 .post-input{
   outline: none;
   height: 2rem;

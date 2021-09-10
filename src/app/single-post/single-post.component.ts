@@ -29,6 +29,9 @@ export class SinglePostComponent implements OnInit {
 
   getSinglePost(){
     this.http.get<PostInterface>("http://localhost:8080/post/getSinglePost/"+this.id).subscribe((data)=>{
+      let dateYear = new Date(data.DateCreated).toLocaleDateString()
+      let dateTime = new Date(data.DateCreated).toLocaleTimeString()
+      data.DateCreated=dateYear + " " + dateTime;
         this.post=data
         console.log(data)
     })

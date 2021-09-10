@@ -37,3 +37,21 @@ a{
 .active{
   background: #8d108d;
 }
+a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+svg{
+  height: 50px;
+  width: 50px;
+  cursor: pointer ;
+
+}
+
+span{
+  font-size: 25px;
+}
+
+
