@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 450px;
-  height: 390px;
+  height: auto;
   border-radius: 20px;
   box-sizing: border-box;
   margin-top: 3rem;
@@ -19,7 +19,9 @@
 
 }
 
-.content{
+.content-box{
+  display: flex;
+  flex-direction: column;
   flex: 1;
   justify-content: flex-start;
   border: 1px solid rgb(108, 105, 105);
@@ -27,7 +29,14 @@
   color: black;
   padding: 5px;
   margin-bottom: 5px;
+}
+.content{
+  flex: 1;
+}
 
+.date{
+  display: flex;
+  justify-content: flex-end;
 
 }
 .images{
@@ -55,12 +64,31 @@ span{
   font-size: 25px;
 }
 
-.hidden{
-  display: none;
+.comment{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+
 }
 
-.date{
-  display: flex;
-  justify-content: flex-end;
+textarea{
+  width: 170px;
+  height: 60px;
+  resize: none;
+  outline: none;
+  border: 1px solid #efc3ef;
+  font-size: 15px;
+  margin-right: 4px ;
 
+}
+textarea:focus{
+  border: 1px solid #f380f3;
+}
+.share-icon{
+  margin: auto;
+}
+.allComment{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }

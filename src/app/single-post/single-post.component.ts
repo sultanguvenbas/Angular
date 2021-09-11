@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {CommentAndPostInterface} from "../interfaces/commentAndPost.interface";
 import {PostInterface} from "../interfaces/post.interface";
+import {CommentInterface} from "../interfaces/comment.interface";
 
 @Component({
   selector: 'app-single-post',
@@ -10,13 +10,24 @@ import {PostInterface} from "../interfaces/post.interface";
   styleUrls: ['./single-post.component.css'],
 })
 export class SinglePostComponent implements OnInit {
-
+  textField ='';
   public id:any;
   post?: PostInterface
-  comment = {} as  CommentAndPostInterface
+  comment: CommentInterface[] = []
   show =false; // hidden by default
+  token= <string>localStorage.getItem('token');
 
   constructor(public route: ActivatedRoute, private http : HttpClient) { }
+
+  clearField(){
+    this.textField='';
+  }
+  checkField(): boolean{
+    if (this.textField == ''){
+      return true
+    }
+    return false
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: any) => {
@@ -24,8 +35,8 @@ export class SinglePostComponent implements OnInit {
       this.id = params.id;
     });
     this.getSinglePost()
+    this.getAllComments()
   }
-
 
   getSinglePost(){
     this.http.get<PostInterface>("http://localhost:8080/post/getSinglePost/"+this.id).subscribe((data)=>{
@@ -37,12 +48,41 @@ export class SinglePostComponent implements OnInit {
     })
   }
 
+  getAllComments() {
+    this.http.get<CommentInterface[]>("http://localhost:8080/comment/getAllComments/"+this.id).subscribe((data) => {
+      for(let i in data){
+        let dateYear = new Date(data[i].CommentDate).toLocaleDateString()
+        let dateTime = new Date(data[i].CommentDate).toLocaleTimeString()
+        data[i].CommentDate=dateYear + " " + dateTime;
+        this.comment.push(data[i])
+        //console.log(data[i])
+      }
+      // this.posts.push(...data);
+    })
+  }
 
+  saveComment() {
+    let text=this.textField;
+    console.log(this.textField)
+    return this.http.post<CommentInterface>("http://localhost:8080/comment/post", {content: this.textField, postid: this.id}, {headers: {"token": this.token}}).subscribe((data) => {
+      let dateYear = new Date(data.CommentDate).toLocaleDateString()
+      let dateTime = new Date(data.CommentDate).toLocaleTimeString()
+      data.CommentDate=dateYear + " " + dateTime;
+      this.comment.unshift({
+        CommentId:data.CommentId,
+        PostId:data.PostId,
+        Content:text,
+        CommentDate:data.CommentDate,
+        Likes:data.Likes,
+        Dislikes:data.Dislikes,
+        Nickname:data.Nickname,
+        Color:data.Color
+      });
+      console.log(data)
 
-  // saveComment(comment : CommentAndPostInterface) {
-  //   const headers = {'content-type' : 'application/json'};
-  //   const body = JSON.stringify(comment);
-  //   return this.http.post("http://localhost:8080/" + 'user/signup', body,{'headers':headers})
-  // }
+    },(error => {
+      alert(JSON.stringify(error))
+    }))
+  }
 }
 
