@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {PostInterface} from "../interfaces/post.interface";
 import {CommentInterface} from "../interfaces/comment.interface";
+import {parse} from "@angular/compiler/src/render3/view/style_parser";
 
 @Component({
   selector: 'app-single-post',
@@ -11,7 +12,7 @@ import {CommentInterface} from "../interfaces/comment.interface";
 })
 export class SinglePostComponent implements OnInit {
   textField ='';
-  public id:any;
+  public id:number=0;
   post?: PostInterface
   comment: CommentInterface[] = []
   show =false; // hidden by default
@@ -32,7 +33,7 @@ export class SinglePostComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: any) => {
       console.log(params.id)
-      this.id = params.id;
+      this.id = parseInt(params.id);
     });
     this.getSinglePost()
     this.getAllComments()
@@ -64,7 +65,8 @@ export class SinglePostComponent implements OnInit {
   saveComment() {
     let text=this.textField;
     console.log(this.textField)
-    return this.http.post<CommentInterface>("http://localhost:8080/comment/post", {content: this.textField, postid: this.id}, {headers: {"token": this.token}}).subscribe((data) => {
+    console.log("postid",this.id)
+    return this.http.post<CommentInterface>("http://localhost:8080/comment/post", { postid: this.id,content: this.textField}, {headers: {"token": this.token}}).subscribe((data) => {
       let dateYear = new Date(data.CommentDate).toLocaleDateString()
       let dateTime = new Date(data.CommentDate).toLocaleTimeString()
       data.CommentDate=dateYear + " " + dateTime;
